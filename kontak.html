@@ -21,7 +21,7 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'Nunito', sans-serif; background: var(--putih); color: var(--teks); min-height: 100vh; display: flex; flex-direction: column; }
 
-    /* HEADER */
+  
     div#header {
       background: linear-gradient(135deg, var(--biru-tua) 0%, var(--biru) 60%, var(--biru-muda) 100%);
       color: white; padding: 0 2rem; display: flex; align-items: center;
@@ -33,10 +33,10 @@
     div#header div.logo span.nama { font-family: 'Pacifico', cursive; font-size: 1.5rem; letter-spacing: 1px; text-shadow: 0 2px 8px rgba(0,212,255,0.5); }
     div#header div.tagline { font-size: 0.85rem; opacity: 0.85; font-style: italic; }
 
-    /* WRAPPER */
+    
     div#wrapper { display: flex; flex: 1; }
 
-    /* SIDEBAR */
+  
     div#sidebar {
       width: var(--sidebar-w); background: linear-gradient(180deg, var(--biru-tua) 0%, #072a45 100%);
       padding: 2rem 0; display: flex; flex-direction: column; gap: 4px;
@@ -58,10 +58,10 @@
     }
     div#sidebar a.menu-item span.icon { font-size: 1.1rem; }
 
-    /* CONTENT */
+    
     div#content { flex: 1; padding: 3rem; background: var(--putih); }
 
-    /* PAGE HEADER */
+    
     div.page-header {
       background: linear-gradient(135deg, var(--oranye), var(--kuning));
       border-radius: 20px; padding: 2.5rem; color: white;
@@ -72,10 +72,10 @@
     div.page-header h1 { font-family: 'Pacifico', cursive; font-size: 2rem; margin-bottom: 0.5rem; color: var(--biru-tua); }
     div.page-header p { color: var(--biru-tua); opacity: 0.85; line-height: 1.6; max-width: 500px; }
 
-    /* KONTAK GRID */
+    
     div.kontak-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem; }
 
-    /* INFO KONTAK */
+    /
     div.info-kontak { display: flex; flex-direction: column; gap: 1rem; }
     div.kontak-item {
       background: white; border-radius: 16px; padding: 1.5rem;
@@ -92,7 +92,7 @@
     div.kontak-item div.ki-info h4 { font-size: 0.8rem; font-weight: 800; color: var(--biru-muda); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
     div.kontak-item div.ki-info p { font-size: 0.95rem; font-weight: 600; color: var(--biru-tua); line-height: 1.5; }
 
-    /* FORM PESAN */
+    
     div.form-pesan {
       background: white; border-radius: 20px; padding: 2rem;
       box-shadow: 0 4px 20px rgba(10,61,98,0.1);
@@ -117,7 +117,7 @@
     }
     div.form-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(10,61,98,0.3); }
 
-    /* PETA PLACEHOLDER */
+  
     div.peta-section { margin-bottom: 2rem; }
     div.peta-section h3 { font-family: 'Pacifico', cursive; font-size: 1.3rem; color: var(--biru-tua); margin-bottom: 1rem; }
     div.peta-placeholder {
@@ -130,7 +130,7 @@
     div.peta-placeholder p { font-weight: 700; font-size: 0.95rem; }
     div.peta-placeholder span { font-size: 0.85rem; opacity: 0.7; }
 
-    /* FOOTER */
+  
     div#footer { background: var(--biru-tua); color: white; text-align: center; padding: 1.5rem 2rem; font-size: 0.9rem; opacity: 0.9; }
     div#footer span { color: var(--cyan); }
   </style>
@@ -156,7 +156,7 @@
 
     <div id="content">
 
-      <!-- Page Header -->
+      
       <div class="page-header">
         <div class="ph-ikon">📞</div>
         <div>
@@ -165,23 +165,23 @@
         </div>
       </div>
 
-      <!-- Kontak Grid -->
+      
       <div class="kontak-grid">
 
-        <!-- Info Kontak -->
+        
         <div class="info-kontak">
           <div class="kontak-item">
             <div class="ki-icon">📍</div>
             <div class="ki-info">
               <h4>Alamat</h4>
-              <p>Jl. Wisata Bahari No. 1<br>Jakarta Utara, DKI Jakarta 14430</p>
+              <p>Jl. Bungsan No. 50<br>Kelurahan Bedahan Kecamatan Sawangan Kota Depok</p>
             </div>
           </div>
           <div class="kontak-item">
             <div class="ki-icon">☎️</div>
             <div class="ki-info">
               <h4>Telepon</h4>
-              <p>(021) 123-4567<br>+62 812-3456-7890 (WhatsApp)</p>
+              <p>085695046469<br>085695046469 (WhatsApp)</p>
             </div>
           </div>
           <div class="kontak-item">
@@ -200,7 +200,7 @@
           </div>
         </div>
 
-        <!-- Form Pesan -->
+      
         <div class="form-pesan">
           <h3>💬 Kirim Pesan</h3>
           <div class="form-group">
@@ -221,13 +221,13 @@
         </div>
       </div>
 
-      <!-- Peta -->
+      
       <div class="peta-section">
         <h3>📍 Lokasi Kami</h3>
         <div class="peta-placeholder">
           <div class="peta-icon">🗺️</div>
           <p>Putri Duyung Waterpark</p>
-          <span>Jl. Wisata Bahari No. 1, Jakarta Utara</span>
+          <span>Jl. Bungsan No. 50 Kelurahan Bedahan Kecamatan Sawangan Kota Depok</span>
         </div>
       </div>
 
@@ -235,7 +235,10 @@
   </div>
 
   <div id="footer">
-    &copy; 2025 <span>Putri Duyung Waterpark</span> — Jl. Wisata Bahari No. 1 &nbsp;|&nbsp; ☎ (021) 123-4567 &nbsp;|&nbsp; 🕗 Buka Setiap Hari 07.00–18.00 WIB
+    &copy; 2026 <span>Putri Duyung Waterpark</span> —Jl. Bungsan No. 50 Kelurahan Bedahan k&nbsp;|&nbsp; ☎085695046469 &nbsp;|&nbsp; 🕗 Buka Setiap Hari 07.00–18.00 WIB
+  </div>
+  <div>
+  @FATIHFAUZI93
   </div>
 
 </body>
