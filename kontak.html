@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontak — Putri Duyung Waterpark</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --biru-tua:  #0a3d62;
+      --biru:      #1a6fa8;
+      --biru-muda: #48b5e8;
+      --cyan:      #00d4ff;
+      --putih:     #f0faff;
+      --kuning:    #ffd700;
+      --oranye:    #ff8c00;
+      --teks:      #0d2b45;
+      --sidebar-w: 220px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Nunito', sans-serif; background: var(--putih); color: var(--teks); min-height: 100vh; display: flex; flex-direction: column; }
+
+    /* HEADER */
+    div#header {
+      background: linear-gradient(135deg, var(--biru-tua) 0%, var(--biru) 60%, var(--biru-muda) 100%);
+      color: white; padding: 0 2rem; display: flex; align-items: center;
+      justify-content: space-between; height: 80px; position: sticky; top: 0;
+      z-index: 100; box-shadow: 0 4px 20px rgba(10,61,98,0.4);
+    }
+    div#header div.logo { display: flex; align-items: center; gap: 12px; }
+    div#header div.logo span.icon { font-size: 2rem; filter: drop-shadow(0 0 8px var(--cyan)); }
+    div#header div.logo span.nama { font-family: 'Pacifico', cursive; font-size: 1.5rem; letter-spacing: 1px; text-shadow: 0 2px 8px rgba(0,212,255,0.5); }
+    div#header div.tagline { font-size: 0.85rem; opacity: 0.85; font-style: italic; }
+
+    /* WRAPPER */
+    div#wrapper { display: flex; flex: 1; }
+
+    /* SIDEBAR */
+    div#sidebar {
+      width: var(--sidebar-w); background: linear-gradient(180deg, var(--biru-tua) 0%, #072a45 100%);
+      padding: 2rem 0; display: flex; flex-direction: column; gap: 4px;
+      flex-shrink: 0; min-height: calc(100vh - 80px);
+    }
+    div#sidebar div.menu-label {
+      color: var(--cyan); font-size: 0.7rem; font-weight: 800; letter-spacing: 3px;
+      text-transform: uppercase; padding: 0 1.5rem 0.8rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 0.5rem;
+    }
+    div#sidebar a.menu-item {
+      display: flex; align-items: center; gap: 10px; padding: 0.75rem 1.5rem;
+      color: rgba(255,255,255,0.75); font-weight: 600; font-size: 0.95rem;
+      cursor: pointer; transition: all 0.2s ease; border-left: 3px solid transparent;
+      text-decoration: none;
+    }
+    div#sidebar a.menu-item:hover, div#sidebar a.menu-item.active {
+      background: rgba(72,181,232,0.15); color: white; border-left-color: var(--cyan);
+    }
+    div#sidebar a.menu-item span.icon { font-size: 1.1rem; }
+
+    /* CONTENT */
+    div#content { flex: 1; padding: 3rem; background: var(--putih); }
+
+    /* PAGE HEADER */
+    div.page-header {
+      background: linear-gradient(135deg, var(--oranye), var(--kuning));
+      border-radius: 20px; padding: 2.5rem; color: white;
+      display: flex; align-items: center; gap: 2rem; margin-bottom: 2.5rem;
+      box-shadow: 0 8px 30px rgba(255,140,0,0.3);
+    }
+    div.page-header div.ph-ikon { font-size: 5rem; line-height: 1; }
+    div.page-header h1 { font-family: 'Pacifico', cursive; font-size: 2rem; margin-bottom: 0.5rem; color: var(--biru-tua); }
+    div.page-header p { color: var(--biru-tua); opacity: 0.85; line-height: 1.6; max-width: 500px; }
+
+    /* KONTAK GRID */
+    div.kontak-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem; }
+
+    /* INFO KONTAK */
+    div.info-kontak { display: flex; flex-direction: column; gap: 1rem; }
+    div.kontak-item {
+      background: white; border-radius: 16px; padding: 1.5rem;
+      display: flex; align-items: flex-start; gap: 1rem;
+      box-shadow: 0 4px 16px rgba(10,61,98,0.08);
+      transition: transform 0.2s;
+    }
+    div.kontak-item:hover { transform: translateX(5px); }
+    div.kontak-item div.ki-icon {
+      font-size: 2rem; width: 52px; height: 52px; border-radius: 14px;
+      background: linear-gradient(135deg, var(--biru-muda), var(--biru));
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    div.kontak-item div.ki-info h4 { font-size: 0.8rem; font-weight: 800; color: var(--biru-muda); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+    div.kontak-item div.ki-info p { font-size: 0.95rem; font-weight: 600; color: var(--biru-tua); line-height: 1.5; }
+
+    /* FORM PESAN */
+    div.form-pesan {
+      background: white; border-radius: 20px; padding: 2rem;
+      box-shadow: 0 4px 20px rgba(10,61,98,0.1);
+    }
+    div.form-pesan h3 { font-family: 'Pacifico', cursive; font-size: 1.3rem; color: var(--biru-tua); margin-bottom: 1.5rem; }
+    div.form-group { margin-bottom: 1.2rem; }
+    div.form-group label { display: block; font-size: 0.85rem; font-weight: 800; color: var(--biru-tua); margin-bottom: 6px; letter-spacing: 0.5px; }
+    div.form-group input,
+    div.form-group textarea {
+      width: 100%; padding: 0.75rem 1rem; border: 2px solid #d0e8f5;
+      border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 0.95rem;
+      color: var(--teks); background: var(--putih); transition: border-color 0.2s;
+      outline: none;
+    }
+    div.form-group input:focus, div.form-group textarea:focus { border-color: var(--biru-muda); }
+    div.form-group textarea { resize: vertical; min-height: 100px; }
+    div.form-submit {
+      background: linear-gradient(135deg, var(--biru-tua), var(--biru));
+      color: white; border: none; padding: 0.85rem 2rem; border-radius: 50px;
+      font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 800;
+      cursor: pointer; transition: all 0.25s; width: 100%;
+    }
+    div.form-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(10,61,98,0.3); }
+
+    /* PETA PLACEHOLDER */
+    div.peta-section { margin-bottom: 2rem; }
+    div.peta-section h3 { font-family: 'Pacifico', cursive; font-size: 1.3rem; color: var(--biru-tua); margin-bottom: 1rem; }
+    div.peta-placeholder {
+      background: linear-gradient(135deg, #d0e8f5, #a8d5f0);
+      border-radius: 16px; height: 200px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 10px; color: var(--biru-tua); box-shadow: 0 4px 16px rgba(10,61,98,0.1);
+    }
+    div.peta-placeholder div.peta-icon { font-size: 3rem; }
+    div.peta-placeholder p { font-weight: 700; font-size: 0.95rem; }
+    div.peta-placeholder span { font-size: 0.85rem; opacity: 0.7; }
+
+    /* FOOTER */
+    div#footer { background: var(--biru-tua); color: white; text-align: center; padding: 1.5rem 2rem; font-size: 0.9rem; opacity: 0.9; }
+    div#footer span { color: var(--cyan); }
+  </style>
+</head>
+<body>
+
+  <div id="header">
+    <div class="logo">
+      <span class="icon">🧜‍♀️</span>
+      <span class="nama">Putri Duyung Waterpark</span>
+    </div>
+    <div class="tagline">Wisata Kolam Renang • Seru, Segar, Menyenangkan!</div>
+  </div>
+
+  <div id="wrapper">
+
+    <div id="sidebar">
+      <div class="menu-label">Menu</div>
+      <a href="index.html" class="menu-item"><span class="icon">🏠</span>Home</a>
+      <a href="profil.html" class="menu-item"><span class="icon">🧜‍♀️</span>Profil</a>
+      <a href="kontak.html" class="menu-item active"><span class="icon">📞</span>Kontak</a>
+    </div>
+
+    <div id="content">
+
+      <!-- Page Header -->
+      <div class="page-header">
+        <div class="ph-ikon">📞</div>
+        <div>
+          <h1>Hubungi Kami</h1>
+          <p>Ada pertanyaan, reservasi, atau butuh info lebih lanjut? Kami siap membantu kamu!</p>
+        </div>
+      </div>
+
+      <!-- Kontak Grid -->
+      <div class="kontak-grid">
+
+        <!-- Info Kontak -->
+        <div class="info-kontak">
+          <div class="kontak-item">
+            <div class="ki-icon">📍</div>
+            <div class="ki-info">
+              <h4>Alamat</h4>
+              <p>Jl. Wisata Bahari No. 1<br>Jakarta Utara, DKI Jakarta 14430</p>
+            </div>
+          </div>
+          <div class="kontak-item">
+            <div class="ki-icon">☎️</div>
+            <div class="ki-info">
+              <h4>Telepon</h4>
+              <p>(021) 123-4567<br>+62 812-3456-7890 (WhatsApp)</p>
+            </div>
+          </div>
+          <div class="kontak-item">
+            <div class="ki-icon">📧</div>
+            <div class="ki-info">
+              <h4>Email</h4>
+              <p>info@putriduyungwaterpark.id</p>
+            </div>
+          </div>
+          <div class="kontak-item">
+            <div class="ki-icon">📱</div>
+            <div class="ki-info">
+              <h4>Media Sosial</h4>
+              <p>@putriduyungwaterpark<br>(Instagram & Facebook)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Pesan -->
+        <div class="form-pesan">
+          <h3>💬 Kirim Pesan</h3>
+          <div class="form-group">
+            <label>Nama Lengkap</label>
+            <input type="text" placeholder="Masukkan nama kamu..." />
+          </div>
+          <div class="form-group">
+            <label>No. WhatsApp / Telepon</label>
+            <input type="text" placeholder="08xx-xxxx-xxxx" />
+          </div>
+          <div class="form-group">
+            <label>Pesan</label>
+            <textarea placeholder="Tulis pertanyaan atau pesanmu di sini..."></textarea>
+          </div>
+          <div class="form-submit" onclick="alert('Pesan terkirim! Kami akan segera menghubungi kamu 😊')">
+            📨 Kirim Pesan
+          </div>
+        </div>
+      </div>
+
+      <!-- Peta -->
+      <div class="peta-section">
+        <h3>📍 Lokasi Kami</h3>
+        <div class="peta-placeholder">
+          <div class="peta-icon">🗺️</div>
+          <p>Putri Duyung Waterpark</p>
+          <span>Jl. Wisata Bahari No. 1, Jakarta Utara</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="footer">
+    &copy; 2025 <span>Putri Duyung Waterpark</span> — Jl. Wisata Bahari No. 1 &nbsp;|&nbsp; ☎ (021) 123-4567 &nbsp;|&nbsp; 🕗 Buka Setiap Hari 07.00–18.00 WIB
+  </div>
+
+</body>
+</html>

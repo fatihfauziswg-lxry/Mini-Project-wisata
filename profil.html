@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profil — Putri Duyung Waterpark</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --biru-tua:  #0a3d62;
+      --biru:      #1a6fa8;
+      --biru-muda: #48b5e8;
+      --cyan:      #00d4ff;
+      --putih:     #f0faff;
+      --kuning:    #ffd700;
+      --oranye:    #ff8c00;
+      --teks:      #0d2b45;
+      --sidebar-w: 220px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Nunito', sans-serif; background: var(--putih); color: var(--teks); min-height: 100vh; display: flex; flex-direction: column; }
+
+    /* HEADER */
+    div#header {
+      background: linear-gradient(135deg, var(--biru-tua) 0%, var(--biru) 60%, var(--biru-muda) 100%);
+      color: white; padding: 0 2rem; display: flex; align-items: center;
+      justify-content: space-between; height: 80px; position: sticky; top: 0;
+      z-index: 100; box-shadow: 0 4px 20px rgba(10,61,98,0.4);
+    }
+    div#header div.logo { display: flex; align-items: center; gap: 12px; }
+    div#header div.logo span.icon { font-size: 2rem; filter: drop-shadow(0 0 8px var(--cyan)); }
+    div#header div.logo span.nama { font-family: 'Pacifico', cursive; font-size: 1.5rem; letter-spacing: 1px; text-shadow: 0 2px 8px rgba(0,212,255,0.5); }
+    div#header div.tagline { font-size: 0.85rem; opacity: 0.85; font-style: italic; }
+
+    /* WRAPPER */
+    div#wrapper { display: flex; flex: 1; }
+
+    /* SIDEBAR */
+    div#sidebar {
+      width: var(--sidebar-w); background: linear-gradient(180deg, var(--biru-tua) 0%, #072a45 100%);
+      padding: 2rem 0; display: flex; flex-direction: column; gap: 4px;
+      flex-shrink: 0; min-height: calc(100vh - 80px);
+    }
+    div#sidebar div.menu-label {
+      color: var(--cyan); font-size: 0.7rem; font-weight: 800; letter-spacing: 3px;
+      text-transform: uppercase; padding: 0 1.5rem 0.8rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 0.5rem;
+    }
+    div#sidebar a.menu-item {
+      display: flex; align-items: center; gap: 10px; padding: 0.75rem 1.5rem;
+      color: rgba(255,255,255,0.75); font-weight: 600; font-size: 0.95rem;
+      cursor: pointer; transition: all 0.2s ease; border-left: 3px solid transparent;
+      text-decoration: none;
+    }
+    div#sidebar a.menu-item:hover, div#sidebar a.menu-item.active {
+      background: rgba(72,181,232,0.15); color: white; border-left-color: var(--cyan);
+    }
+    div#sidebar a.menu-item span.icon { font-size: 1.1rem; }
+
+    /* CONTENT */
+    div#content { flex: 1; padding: 3rem; background: var(--putih); }
+
+    /* PAGE HEADER */
+    div.page-header {
+      background: linear-gradient(135deg, var(--biru-tua), var(--biru));
+      border-radius: 20px; padding: 2.5rem; color: white;
+      display: flex; align-items: center; gap: 2rem; margin-bottom: 2.5rem;
+      box-shadow: 0 8px 30px rgba(10,61,98,0.2);
+    }
+    div.page-header div.ph-ikon { font-size: 5rem; line-height: 1; }
+    div.page-header h1 { font-family: 'Pacifico', cursive; font-size: 2rem; margin-bottom: 0.5rem; }
+    div.page-header p { opacity: 0.85; line-height: 1.6; max-width: 500px; }
+
+    /* INFO GRID */
+    div.info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 2.5rem; }
+
+    div.info-card {
+      background: white; border-radius: 16px; padding: 1.8rem;
+      box-shadow: 0 4px 16px rgba(10,61,98,0.08);
+      border-top: 4px solid var(--biru-muda);
+    }
+    div.info-card div.ic-header { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; }
+    div.info-card div.ic-header span.ic-icon { font-size: 1.6rem; }
+    div.info-card div.ic-header h3 { font-size: 1.05rem; font-weight: 800; color: var(--biru-tua); }
+    div.info-card p { font-size: 0.95rem; line-height: 1.7; color: #3a5a72; }
+
+    /* FASILITAS */
+    div.fasilitas-section { margin-bottom: 2.5rem; }
+    div.fasilitas-section h2 { font-family: 'Pacifico', cursive; font-size: 1.6rem; color: var(--biru-tua); margin-bottom: 1.2rem; }
+    div.fasilitas-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    div.fasilitas-item {
+      background: white; border-radius: 14px; padding: 1.4rem 1rem;
+      text-align: center; box-shadow: 0 4px 14px rgba(10,61,98,0.08);
+      transition: transform 0.25s;
+    }
+    div.fasilitas-item:hover { transform: translateY(-5px); }
+    div.fasilitas-item div.fi-icon { font-size: 2.2rem; margin-bottom: 0.6rem; }
+    div.fasilitas-item div.fi-label { font-size: 0.85rem; font-weight: 700; color: var(--biru-tua); }
+
+    /* FOOTER */
+    div#footer { background: var(--biru-tua); color: white; text-align: center; padding: 1.5rem 2rem; font-size: 0.9rem; opacity: 0.9; }
+    div#footer span { color: var(--cyan); }
+  </style>
+</head>
+<body>
+
+  <div id="header">
+    <div class="logo">
+      <span class="icon">🧜‍♀️</span>
+      <span class="nama">Putri Duyung Waterpark</span>
+    </div>
+    <div class="tagline">Wisata Kolam Renang • Seru, Segar, Menyenangkan!</div>
+  </div>
+
+  <div id="wrapper">
+
+    <div id="sidebar">
+      <div class="menu-label">Menu</div>
+      <a href="index.html" class="menu-item"><span class="icon">🏠</span>Home</a>
+      <a href="profil.html" class="menu-item active"><span class="icon">🧜‍♀️</span>Profil</a>
+      <a href="kontak.html" class="menu-item"><span class="icon">📞</span>Kontak</a>
+    </div>
+
+    <div id="content">
+
+      <!-- Page Header -->
+      <div class="page-header">
+        <div class="ph-ikon">🧜‍♀️</div>
+        <div>
+          <h1>Profil Kami</h1>
+          <p>Putri Duyung Waterpark hadir sebagai destinasi wisata air keluarga yang mengutamakan keseruan, keamanan, dan kenyamanan bagi semua kalangan usia.</p>
+        </div>
+      </div>
+
+      <!-- Info Cards -->
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="ic-header"><span class="ic-icon">📖</span><h3>Tentang Kami</h3></div>
+          <p>Berdiri sejak 2015, Putri Duyung Waterpark adalah tempat wisata kolam renang keluarga terpercaya. Kami menyediakan fasilitas lengkap dengan standar kebersihan dan keamanan tinggi untuk pengalaman berenang yang menyenangkan.</p>
+        </div>
+        <div class="info-card">
+          <div class="ic-header"><span class="ic-icon">🎯</span><h3>Visi Kami</h3></div>
+          <p>Menjadi tujuan wisata air unggulan yang memberikan pengalaman tak terlupakan bagi setiap keluarga, dengan menghadirkan wahana seru, fasilitas modern, dan pelayanan terbaik.</p>
+        </div>
+        <div class="info-card">
+          <div class="ic-header"><span class="ic-icon">⭐</span><h3>Keunggulan</h3></div>
+          <p>Air kolam kami ditreatment secara rutin dan diuji kualitasnya setiap hari. Lifeguard berpengalaman berjaga di seluruh area kolam untuk memastikan keselamatan pengunjung.</p>
+        </div>
+        <div class="info-card">
+          <div class="ic-header"><span class="ic-icon">🕗</span><h3>Jam Operasional</h3></div>
+          <p><strong>Senin – Jumat:</strong> 08.00 – 17.00 WIB<br><strong>Sabtu – Minggu:</strong> 07.00 – 18.00 WIB<br><strong>Hari Libur Nasional:</strong> 07.00 – 18.00 WIB</p>
+        </div>
+      </div>
+
+      <!-- Fasilitas -->
+      <div class="fasilitas-section">
+        <h2>🏊 Fasilitas Tersedia</h2>
+        <div class="fasilitas-grid">
+          <div class="fasilitas-item"><div class="fi-icon">🏊</div><div class="fi-label">Kolam Dewasa</div></div>
+          <div class="fasilitas-item"><div class="fi-icon">👶</div><div class="fi-label">Kolam Anak</div></div>
+          <div class="fasilitas-item"><div class="fi-icon">🌊</div><div class="fi-label">Seluncuran Air</div></div>
+          <div class="fasilitas-item"><div class="fi-icon">🍽️</div><div class="fi-label">Food Court</div></div>
+          <div class="fasilitas-item"><div class="fi-icon">🚿</div><div class="fi-label">Kamar Mandi</div></div>
+          <div class="fasilitas-item"><div class="fi-icon">🅿️</div><div class="fi-label">Parkir Luas</div></div>
+          <div class="fasilitas-item"><div class="fi-icon">🎉</div><div class="fi-label">Aula Event</div></div>
+          <div class="fasilitas-item"><div class="fi-icon">🛟</div><div class="fi-label">Lifeguard</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="footer">
+    &copy; 2025 <span>Putri Duyung Waterpark</span> — Jl. Wisata Bahari No. 1 &nbsp;|&nbsp; ☎ (021) 123-4567 &nbsp;|&nbsp; 🕗 Buka Setiap Hari 07.00–18.00 WIB
+  </div>
+
+</body>
+</html>
